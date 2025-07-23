@@ -11,17 +11,19 @@ rf_model = pickle.load(open("RF_model", "rb"))
 # Page setup
 st.set_page_config(page_title="Heart Disease Predictor", page_icon="🫀", layout="centered")
 
-# Custom CSS for styling
+# Custom CSS
 st.markdown("""
     <style>
     body {
-        background-color: #F8F9FA;
+        background-color: #F2F2F2;
     }
     .stApp {
-        background-color: #F8F9FA;
+        background-color: #F2F2F2;
+        color: #222831;
+        font-family: 'Segoe UI', sans-serif;
     }
     h1 {
-        background: linear-gradient(to right, #213448, #077A7D,#456882);
+        background: linear-gradient(to right, #0F2027, #2C5364);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 42px;
@@ -31,8 +33,15 @@ st.markdown("""
     .block-container {
         padding: 2rem 2rem;
     }
+    label, .stTextInput > div > input, .stSelectbox > div > div, .stRadio > div, .stNumberInput > div > input {
+        color: #1A1A1A !important;
+        background-color: #FFFFFF !important;
+    }
+    .stSlider > div > div {
+        color: #1A1A1A !important;
+    }
     .stButton>button {
-        background-color: #560BAD;
+        background-color: #0061A8;
         color: white;
         padding: 0.6rem 1.2rem;
         border-radius: 10px;
@@ -40,10 +49,10 @@ st.markdown("""
         font-size: 16px;
     }
     .stButton>button:hover {
-        background-color: #7209B7;
+        background-color: #003d73;
     }
     .sidebar .sidebar-content {
-        background-color: #EAE2F8;
+        background-color: #DCEEF2;
         padding: 1rem;
     }
     </style>
@@ -54,7 +63,7 @@ st.markdown("<h1> Heart Disease Risk Prediction</h1>", unsafe_allow_html=True)
 st.markdown("### Enter your health details below to predict your heart disease risk using different machine learning models.")
 
 # Sidebar model selection
-st.sidebar.title(" Model Selection")
+st.sidebar.title("⚙️ Model Selection")
 model_option = st.sidebar.radio("Select Model:", (
     "Logistic Regression", "Support Vector Machine", "Decision Tree", "Random Forest"))
 
@@ -107,4 +116,3 @@ if st.button("💡 Predict Risk"):
         st.error("🚨 **High Risk**: You might be at risk for heart disease. Please consult a healthcare provider.")
     else:
         st.success("🎉 **Low Risk**: You appear to be healthy. Keep maintaining your lifestyle!")
-
