@@ -11,64 +11,59 @@ rf_model = pickle.load(open("RF_model", "rb"))
 # Page setup
 st.set_page_config(page_title="Heart Disease Predictor", page_icon="🫀", layout="centered")
 
-# Custom CSS
+# Custom CSS for pure black-and-white design
 st.markdown("""
     <style>
-    body {
-        background-color: #F2F2F2;
-    }
     .stApp {
-        background-color: #F2F2F2;
-        color: #222831;
+        background-color: white;
+        color: black;
         font-family: 'Segoe UI', sans-serif;
     }
     h1 {
-        background: linear-gradient(to right, #0F2027, #2C5364);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-size: 42px;
+        color: black;
         text-align: center;
-        padding-bottom: 10px;
+        font-size: 40px;
+        margin-bottom: 10px;
     }
     .block-container {
         padding: 2rem 2rem;
     }
     label, .stTextInput > div > input, .stSelectbox > div > div, .stRadio > div, .stNumberInput > div > input {
-        color: #1A1A1A !important;
-        background-color: #FFFFFF !important;
+        color: black !important;
+        background-color: white !important;
     }
     .stSlider > div > div {
-        color: #1A1A1A !important;
+        color: black !important;
     }
-    .stButton>button {
-        background-color: #0061A8;
+    .stButton > button {
+        background-color: black;
         color: white;
         padding: 0.6rem 1.2rem;
-        border-radius: 10px;
+        border-radius: 8px;
         border: none;
         font-size: 16px;
     }
-    .stButton>button:hover {
-        background-color: #003d73;
+    .stButton > button:hover {
+        background-color: #333333;
     }
     .sidebar .sidebar-content {
-        background-color: #DCEEF2;
+        background-color: #F5F5F5;
         padding: 1rem;
+        color: black;
     }
     </style>
 """, unsafe_allow_html=True)
 
 # Title
-st.markdown("<h1> Heart Disease Risk Prediction</h1>", unsafe_allow_html=True)
+st.markdown("<h1>Heart Disease Risk Prediction</h1>", unsafe_allow_html=True)
 st.markdown("### Enter your health details below to predict your heart disease risk using different machine learning models.")
 
-# Sidebar model selection
+# Sidebar
 st.sidebar.title("⚙️ Model Selection")
 model_option = st.sidebar.radio("Select Model:", (
     "Logistic Regression", "Support Vector Machine", "Decision Tree", "Random Forest"))
-
 st.sidebar.markdown("---")
-st.sidebar.write("🧠 Models are trained using real clinical data.")
+st.sidebar.write("🧠 Models trained on real clinical data.")
 
 # Input fields
 st.markdown("---")
