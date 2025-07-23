@@ -15,7 +15,7 @@ st.set_page_config(page_title="Heart Disease Predictor", page_icon="🫀", layou
 st.markdown("""
     <style>
     .stApp {
-        background-color: #E9E3DF;
+        background-color: #799EFF;
         color: #000000;
     }
 
